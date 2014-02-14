@@ -1,0 +1,39 @@
+
+
+<%= form_tag root_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search], :placeholder => "Search by model, category, name and brand" %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+
+
+<table>
+	<tr>
+		<th>Category ID</th>
+		<th>Model</th>
+		<th>Category</th>
+		<th>Name</th>
+		<th>Price</th>
+		<th>Brand</th>
+	</tr>
+
+	<% @products_list.each do |product| %> 
+		<tr>
+			<td>
+			<%= product["cat_id"] %> </td>
+			<td>
+			<%= product["model"] %></td>
+			<td>
+			<%= product["category"] %></td>
+			<td>
+			<%= product["name"] %></td>
+			<td>
+			<%= product["price"] %></td>
+			<td>
+			<%= product["brand"] %></td>
+		</tr>
+
+	<% end %>
+</table>
